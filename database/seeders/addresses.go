@@ -1,0 +1,145 @@
+package seeders
+
+import (
+	"fmt"
+	"real-time-application/database"
+	"real-time-application/services"
+	"time"
+)
+
+func AddressesSeeder() {
+	addresses := []services.Address{
+		{
+			User_Id:        1,
+			Address_Type:   "Rumah",
+			Recipient_Name: "John Doe",
+			Phone_Number:   "081234567890",
+			Full_Address:   "Jl. Mawar No. 123, RT 05, RW 07",
+			District:       "Kecamatan A",
+			City:           "Kota X",
+			Province:       "Provinsi Y",
+			Postal_Code:    "12345",
+			Is_Primary:     true,
+			Created_At:     time.Now(),
+			Updated_At:     time.Now(),
+		},
+		{
+			User_Id:        1,
+			Address_Type:   "Rumah",
+			Recipient_Name: "John Doe",
+			Phone_Number:   "081234567890",
+			Full_Address:   "Jl. Melati No. 456, RT 01, RW 02",
+			District:       "Kecamatan B",
+			City:           "Kota X",
+			Province:       "Provinsi Y",
+			Postal_Code:    "12346",
+			Is_Primary:     false,
+			Created_At:     time.Now(),
+			Updated_At:     time.Now(),
+		},
+		{
+			User_Id:        1,
+			Address_Type:   "Kantor",
+			Recipient_Name: "John Doe",
+			Phone_Number:   "081234567890",
+			Full_Address:   "Jl. Anggrek No. 789, RT 03, RW 04",
+			District:       "Kecamatan C",
+			City:           "Kota Z",
+			Province:       "Provinsi Y",
+			Postal_Code:    "12347",
+			Is_Primary:     false,
+			Created_At:     time.Now(),
+			Updated_At:     time.Now(),
+		},
+		{
+			User_Id:        2,
+			Address_Type:   "Rumah",
+			Recipient_Name: "Jane Smith",
+			Phone_Number:   "089876543210",
+			Full_Address:   "Jl. Sakura No. 321, RT 07, RW 08",
+			District:       "Kecamatan D",
+			City:           "Kota Y",
+			Province:       "Provinsi Z",
+			Postal_Code:    "54321",
+			Is_Primary:     true,
+			Created_At:     time.Now(),
+			Updated_At:     time.Now(),
+		},
+		{
+			User_Id:        2,
+			Address_Type:   "Rumah",
+			Recipient_Name: "Jane Smith",
+			Phone_Number:   "089876543210",
+			Full_Address:   "Jl. Kenanga No. 654, RT 04, RW 05",
+			District:       "Kecamatan E",
+			City:           "Kota Y",
+			Province:       "Provinsi Z",
+			Postal_Code:    "54322",
+			Is_Primary:     false,
+			Created_At:     time.Now(),
+			Updated_At:     time.Now(),
+		},
+		{
+			User_Id:        2,
+			Address_Type:   "Kantor",
+			Recipient_Name: "Jane Smith",
+			Phone_Number:   "089876543210",
+			Full_Address:   "Jl. Dahlia No. 987, RT 06, RW 09",
+			District:       "Kecamatan F",
+			City:           "Kota X",
+			Province:       "Provinsi Z",
+			Postal_Code:    "54323",
+			Is_Primary:     false,
+			Created_At:     time.Now(),
+			Updated_At:     time.Now(),
+		},
+		{
+			User_Id:        3,
+			Address_Type:   "Rumah",
+			Recipient_Name: "Michael Brown",
+			Phone_Number:   "087654321098",
+			Full_Address:   "Jl. Tulip No. 111, RT 08, RW 10",
+			District:       "Kecamatan G",
+			City:           "Kota W",
+			Province:       "Provinsi V",
+			Postal_Code:    "67890",
+			Is_Primary:     true,
+			Created_At:     time.Now(),
+			Updated_At:     time.Now(),
+		},
+		{
+			User_Id:        3,
+			Address_Type:   "Rumah",
+			Recipient_Name: "Michael Brown",
+			Phone_Number:   "087654321098",
+			Full_Address:   "Jl. Lavender No. 222, RT 09, RW 11",
+			District:       "Kecamatan H",
+			City:           "Kota W",
+			Province:       "Provinsi V",
+			Postal_Code:    "67891",
+			Is_Primary:     false,
+			Created_At:     time.Now(),
+			Updated_At:     time.Now(),
+		},
+		{
+			User_Id:        3,
+			Address_Type:   "Kantor",
+			Recipient_Name: "Michael Brown",
+			Phone_Number:   "087654321098",
+			Full_Address:   "Jl. Lily No. 333, RT 10, RW 12",
+			District:       "Kecamatan I",
+			City:           "Kota W",
+			Province:       "Provinsi V",
+			Postal_Code:    "67892",
+			Is_Primary:     false,
+			Created_At:     time.Now(),
+			Updated_At:     time.Now(),
+		},
+	}
+
+	for _, address := range addresses {
+		if err := database.DB.Create(&address).Error; err != nil {
+			fmt.Println("Create Addresses")
+		}
+	}
+}
